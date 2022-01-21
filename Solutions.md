@@ -313,6 +313,14 @@ for image in images_sorted:
 apt-get install python3
 apt-get install pip
 pip install boto3
+pip install paramiko
+
+# Create credentials in Jenkins 
+jenkins_aws_access_key_id - Secret Text
+jenkins_aws_secret_access_key - Secret Text
+ssh-creds - SSH Username with private key
+ecr-repo-pwd - Secret Text
+
 
 NOTE: you will have to approve usage of "split" function in script. You will see the link to approval inside the build console logs
 

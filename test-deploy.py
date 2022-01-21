@@ -17,7 +17,7 @@ host_port = os.environ['HOST_PORT']
 # SSH into the EC2 server
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-ssh.connect(hostname=ssh_host, username=ssh_user, pkey=ssh_private_key)
+ssh.connect(hostname=ssh_host, username=ssh_user, key_filename=ssh_private_key)
 
 stdin, stdout, stderr = ssh.exec_command(f"echo {docker_pwd} | docker login {docker_registry} --username {docker_user} --password-stdin")
 print(stdout.readlines())
