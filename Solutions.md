@@ -314,6 +314,7 @@ apt-get install python3
 apt-get install pip
 pip install boto3
 pip install paramiko
+pip install requests
 
 # Create credentials in Jenkins 
 "jenkins_aws_access_key_id" - Secret Text

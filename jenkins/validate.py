@@ -1,3 +1,4 @@
+from wsgiref.util import request_uri
 import requests
 import time
 import os
@@ -9,8 +10,9 @@ host_port = os.environ['HOST_PORT']
 try:
     # give the app some time to start up
     time.sleep(30)
-
-    response = requests.get(f"http://{ssh_host}:{host_port}")
+    request_url = f"http://{ssh_host}:{host_port}"
+    print(request_url)
+    response = requests.get(request_url)
     if response.status_code == 200:
         print('Application is running successfully!')
     else:
