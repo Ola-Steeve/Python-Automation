@@ -11,3 +11,5 @@ images = ecr_client.describe_images(repositoryName=repo_name)
 image_tags = []
 for image in images['imageDetails']:
     image_tags.append(image['imageTags'][0])
+
+print(image_tags)
