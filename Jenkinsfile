@@ -6,7 +6,6 @@ pipeline {
         ECR_REPO_NAME = 'java-app'
         EC2_SERVER = '52.47.203.210'
         EC2_USER = 'ec2-user'
-        SSH_KEY = credentials('ec2-ssh-key')
     }
     stages {
         stage('select image version') {

@@ -1,8 +1,5 @@
 import boto3
 import os
-import paramiko
-import requests
-import time
 
 repo_name = os.environ['ECR_REPO_NAME']
 
