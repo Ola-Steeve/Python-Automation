@@ -12,4 +12,5 @@ image_tags = []
 for image in images['imageDetails']:
     image_tags.append(image['imageTags'][0])
 
-print(image_tags)
+for tag in image_tags:
+    print(tag)

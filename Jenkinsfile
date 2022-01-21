@@ -16,9 +16,9 @@ pipeline {
             steps {
                script {
                   echo 'fetching available image versions'
-                  result = sh(script: 'python3 test-get-images.py', returnStdout: true).trim()
-                  echo result
-                  env.VERSION_TO_DEPLOY = input message: 'Select version to deploy on TEST', ok: 'Deploy', parameters: [choice(name: 'Select version', choices: result)]
+                  def result = sh(script: 'python3 test-get-images.py', returnStdout: true).trim()
+                  def tags = result.split('\n')
+                  env.VERSION_TO_DEPLOY = input message: 'Select version to deploy on TEST', ok: 'Deploy', parameters: [choice(name: 'Select version', choices: tags)]
                   echo env.VERSION_TO_DEPLOY
                }
             }
