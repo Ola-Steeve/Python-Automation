@@ -314,6 +314,8 @@ apt-get install python3
 apt-get install pip
 pip install boto3
 
+NOTE: you will have to approve usage of "split" function in script. You will see the link to approval inside the build console logs
+
 ```
 
 </details>

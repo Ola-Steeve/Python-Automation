@@ -8,9 +8,9 @@ import time
 repo_name = os.environ['ECR_REPO_NAME']
 ssh_host = os.environ['EC2_SERVER']
 ssh_user = os.environ['EC2_USER']
-ssh_privat_key_path = os.environ['SSH_KEY']
+ssh_private_key = os.environ['SSH_KEY']
 
-docker_registry = os.environ['DOCKER_REGISTRY']
+docker_registry = os.environ['ECR_REGISTRY']
 docker_user = os.environ['DOCKER_USER']
 docker_pwd = os.environ['DOCKER_PWD']
 docker_image = os.environ['DOCKER_IMAGE'] # selected by user in Jenkins 
@@ -28,7 +28,7 @@ for image in images['imageDetails']:
 # SSH into the EC2 server
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-ssh.connect(hostname=ssh_host, username=ssh_user, key_filename=ssh_privat_key_path)
+ssh.connect(hostname=ssh_host, username=ssh_user, pkey=ssh_private_key)
 
 stdin, stdout, stderr = ssh.exec_command(f"echo {docker_pwd} | docker login {docker_registry} --username {docker_user} --password-stdin")
 print(stdout.readlines())
@@ -41,7 +41,7 @@ ssh.close()
 try:
     # give the app some time to start up
     time.sleep(30) 
-    
+
     response = requests.get(f"http://{ssh_host}:{container_port}")
     if response.status_code == 200:
         print('Application is running successfully!')
