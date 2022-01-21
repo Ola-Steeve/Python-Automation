@@ -309,6 +309,11 @@ for image in images_sorted:
 
 ```sh
 
+# Install Python inside Jenkins server
+apt-get install python3
+apt-get install pip
+pip install boto3
+
 ```
 
 </details>
