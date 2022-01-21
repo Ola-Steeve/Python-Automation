@@ -9,10 +9,9 @@ host_port = os.environ['HOST_PORT']
 # Validate the application started successfully
 try:
     # give the app some time to start up
-    time.sleep(30)
-    request_url = f"http://{ssh_host}:{host_port}"
-    print(request_url)
-    response = requests.get(request_url)
+    time.sleep(15)
+    
+    response = requests.get(f"http://{ssh_host}:{host_port}")
     if response.status_code == 200:
         print('Application is running successfully!')
     else:

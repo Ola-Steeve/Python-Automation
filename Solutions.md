@@ -327,7 +327,20 @@ pip install requests
 ```
 
 **Code**
+```sh
+# In jenkins folder, you will find the Jenkinsfile that executes 3 python scripts for different stages:
+- get-images.py
+- deploy.py
+- validate.py
 
+# Before executing the Jenkins pipeline, set the following environment variable values inside Jenkinsfile
+- ECR_REPO_NAME
+- EC2_SERVER
+- ECR_REGISTRY
+- CONTAINER_PORT
+- HOST_PORT
+- AWS_DEFAULT_REGION
+```
 
 </details>
 
