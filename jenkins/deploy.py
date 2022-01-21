@@ -1,11 +1,10 @@
-import boto3
 import os
 import paramiko
 
 # get all the env vars set in Jenkinsfile
 ssh_host = os.environ['EC2_SERVER']
 ssh_user = os.environ['EC2_USER']
-ssh_private_key = os.environ['SSH_KEY']
+ssh_private_key = os.environ['SSH_KEY_FILE']
 
 docker_registry = os.environ['ECR_REGISTRY']
 docker_user = os.environ['DOCKER_USER']
